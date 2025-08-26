@@ -1,0 +1,28 @@
+classDiagram
+    class index {
+        +main()
+    }
+
+    class UserController {
+        -userService: UserService
+        -connection: Connection
+        +UserController()
+        +authenticateUser(email, password): boolean
+    }
+
+    class UserService {
+        +verifyPassword(inputPassword, storedPassword): boolean
+    }
+
+    class Connection {
+        -isConnected: boolean
+        +Connection()
+        -connect()
+        +query(sql, params): any
+        +close()
+    }
+
+    %% Dependencies - Bad Practice: Direct Instantiation
+    index --> UserController : creates
+    UserController --> UserService : creates and depends on
+    UserController --> Connection : creates and depends on

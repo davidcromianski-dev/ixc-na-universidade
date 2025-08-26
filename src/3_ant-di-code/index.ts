@@ -4,7 +4,7 @@ import { UserController } from './Controllers/UserController.js';
 // 🚀 Ant-DI: Simples, leve e sem dependências externas
 async function main() {
   try {
-    const controller = container.offsetGet(UserController);
+    const controller = container.get(UserController);
     
     // Teste de autenticação
     const isAuthenticated = await controller.authenticateUser('user@example.com', 'password123');

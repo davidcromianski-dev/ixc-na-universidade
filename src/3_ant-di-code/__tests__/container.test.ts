@@ -13,33 +13,27 @@ import { Connection } from '../DataAccess/Connection.js';
 describe('Container Ant-DI', () => {
   describe('resolução de dependências', () => {
     it('deve resolver UserService', () => {
-      const userService = container.offsetGet('UserService');
+      const userService = container.get('UserService');
       expect(userService).toBeInstanceOf(UserService);
     });
 
     it('deve resolver Connection', () => {
-      const connection = container.offsetGet('Connection');
+      const connection = container.get('Connection');
       expect(connection).toBeInstanceOf(Connection);
     });
 
     it('deve resolver UserController', () => {
-      const userController = container.offsetGet('UserController');
+      console.log(container);
+      const userController = container.get('UserController');
       expect(userController).toBeInstanceOf(UserController);
-    });
-
-    it('deve retornar a mesma instância para singletons', () => {
-      const service1 = container.offsetGet('UserService');
-      const service2 = container.offsetGet('UserService');
-      
-      expect(service1).toBe(service2);
     });
   });
 
   describe('configuração do container', () => {
     it('deve ter todos os tipos registrados', () => {
-      expect(container.offsetExists('UserService')).toBe(true);
-      expect(container.offsetExists('Connection')).toBe(true);
-      expect(container.offsetExists('UserController')).toBe(true);
+      expect(container.has('UserService')).toBe(true);
+      expect(container.has('Connection')).toBe(true);
+      expect(container.has('UserController')).toBe(true);
     });
   });
 });

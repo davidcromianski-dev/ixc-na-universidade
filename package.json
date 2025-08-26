@@ -15,11 +15,10 @@
     "test:better-code": "jest src/1_better-code/__tests__",
     "test:inversify": "jest src/2_di-code/__tests__",
     "test:ant-di": "jest src/3_ant-di-code/__tests__",
-    "test:integration": "jest src/__tests__",
     "test:all": "jest --coverage"
   },
   "dependencies": {
-    "@davidcromianski-dev/ant-di": "^2.0.3",
+    "@davidcromianski-dev/ant-di": "^3.0.0",
     "inversify": "^6.0.2",
     "reflect-metadata": "^0.2.1"
   },

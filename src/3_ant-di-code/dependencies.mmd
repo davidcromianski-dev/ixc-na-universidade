@@ -1,0 +1,58 @@
+classDiagram
+    class index {
+        +main()
+    }
+
+    class Container {
+        <<Ant DI>>
+        +get<T>(key: string | Function<T>): T
+        +set(key: string | Function, value: any): void
+        +bind<T>(key: Function, dependencies: Function[]): void
+    }
+
+    class UserController {
+        -userService: IUserService
+        -connection: IConnection
+        +UserController(userService, connection)
+        +authenticateUser(email, password): boolean
+    }
+
+    class IUserService {
+        <<interface>>
+        +verifyPassword(inputPassword, storedPassword): boolean
+    }
+
+    class UserService {
+        +verifyPassword(inputPassword, storedPassword): boolean
+    }
+
+    class IConnection {
+        <<interface>>
+        +query(sql, params): Promise~any~
+        +close(): Promise~void~
+    }
+
+    class Connection {
+        -isConnected: boolean
+        -config: any
+        +Connection(config?)
+        -connect()
+        +query(sql, params): Promise~any~
+        +close(): Promise~void~
+    }
+
+    %% Dependencies - Better Practice: Dependency Injection
+    index --> Container : creates
+
+    Container --> UserService : creates
+    Container --> UserController : creates with dependencies
+    Container --> Connection : creates
+    
+    %% Interface Implementation
+    UserService ..<| IUserService : implements
+    Connection ..<| IConnection : implements
+
+    %% Controller consumes dependencies
+    UserController --> IUserService : depends on
+    UserController --> IConnection : depends on
+    
