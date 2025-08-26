@@ -7,7 +7,7 @@ async function main() {
   try {
     // Teste de autenticação
     const isAuthenticated = await controller.authenticateUser('user@example.com', 'password123');
-    console.log('Usuário autenticado:', isAuthenticated);
+    console.log('[BAD CODE] Usuário autenticado:', isAuthenticated);
   } catch (error) {
     console.error('Erro:', error);
   }

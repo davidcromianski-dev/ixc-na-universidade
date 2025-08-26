@@ -9,7 +9,7 @@ async function main() {
     
     // Teste de autenticação
     const isAuthenticated = await controller.authenticateUser('user@example.com', 'password123');
-    console.log('Usuário autenticado:', isAuthenticated);
+    console.log('[INVERSIFY] Usuário autenticado:', isAuthenticated);
     
   } catch (error) {
     console.error('Erro:', error);
