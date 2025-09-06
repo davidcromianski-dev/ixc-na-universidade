@@ -8,7 +8,7 @@ async function main() {
   const userService = new UserService();
   // const userRestrictedByDateService = new UserRestrictedByDateService();
   const connection = new Connection({ host: 'localhost', port: 3306 });
-  const controller = new UserController(c, connection);
+  const controller = new UserController(userService, connection);
   
   try {
     // Teste de autenticação
