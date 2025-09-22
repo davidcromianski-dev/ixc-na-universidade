@@ -6,7 +6,6 @@ export class UserController {
   private connection: IConnection;
 
   constructor(userService: IUserService, connection: IConnection) {
-    // ✅ VANTAGEM: Injeção simples via construtor
     this.userService = userService;
     this.connection = connection;
   }

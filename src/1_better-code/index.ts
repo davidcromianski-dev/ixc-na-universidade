@@ -3,7 +3,6 @@ import { UserService } from './Services/UserService.js';
 // import { UserRestrictedByDateService } from './Services/UserRestrictedByDateService.js';
 import { Connection } from './DataAccess/Connection.js';
 
-// ✅ MELHORIA: Instanciação explícita - mais fácil de testar
 async function main() {
   const userService = new UserService();
   // const userRestrictedByDateService = new UserRestrictedByDateService();

@@ -13,7 +13,6 @@ export class UserController {
 
   async authenticateUser(email: string, password: string): Promise<boolean> {
     try {
-      // ✅ MELHORIA: Responsabilidades mais claras
       const user = await this.connection.query(
         'SELECT * FROM users WHERE email = ?',
         [email]

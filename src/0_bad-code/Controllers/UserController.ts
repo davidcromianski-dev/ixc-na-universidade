@@ -13,7 +13,6 @@ export class UserController {
 
   async authenticateUser(email: string, password: string): Promise<boolean> {
     try {
-      // ❌ PROBLEMA: Mistura responsabilidades - controller fazendo operações de banco
       const user = await this.connection.query(
         'SELECT * FROM users WHERE email = ?',
         [email]
@@ -24,7 +23,6 @@ export class UserController {
         return false;
       }
 
-      // ❌ PROBLEMA: Controller dependendo diretamente da implementação do service
       return this.userService.verifyPassword(password, user.password);
     } catch (error) {
       console.error('Erro na autenticação:', error);
