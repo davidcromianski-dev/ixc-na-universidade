@@ -18,7 +18,7 @@
     "test:all": "jest --coverage"
   },
   "dependencies": {
-    "@davidcromianski-dev/ant-di": "^3.0.0",
+    "@davidcromianski-dev/ant-di": "^1.0.3",
     "inversify": "^6.0.2",
     "reflect-metadata": "^0.2.1"
   },

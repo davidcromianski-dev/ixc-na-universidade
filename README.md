@@ -8,17 +8,6 @@
 - Node.js 18+ 
 - npm ou yarn
 
-### Configuração do GitHub Packages
-
-1. Crie um arquivo `.npmrc` na raiz do projeto com o seguinte conteúdo:
-
-```bash
-//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
-@davidcromianski-dev:registry=https://npm.pkg.github.com
-```
-
-2. Substitua `YOUR_GITHUB_TOKEN` pelo token de acesso gerado no GitHub.
-
 ### Instalação
 ```bash
 npm install
